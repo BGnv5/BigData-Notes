@@ -4,7 +4,7 @@
 
 # 大数据
 
-## :computer:Flume
+## Flume
 ### 简述
 - 简介
 - 安装
