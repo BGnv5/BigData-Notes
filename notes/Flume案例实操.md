@@ -244,7 +244,7 @@ bgnv5.log.COMPLETED  bgnv5.tmp  bgnv5.txt.COMPLETED
 ```
 #### 单数据源多出口（选择器）
 
-![多路复用流](pics\DLFY.jpg)
+<div align="center"> <img src="pics\DLFY.jpg" width="500px"> </div><br>
 
 ##### 案例需求
 使用flume-1监控文件变动，flume-1将变动内容传递给flume-2，flume-2负责存储到HDFS。同时flume-1将变动内容传递给flume-3，flume-3负责输出到local filesystem。
@@ -422,7 +422,7 @@ Found 1 items
 ```
 #### 单数据源多出口（sink组）
 
-![负载均衡功能](pics\FZJH.jpg)
+<div align="center"> <img src="pics\FZJH.jpg" width="500px"> </div><br>
 
 ##### 案例需求
 使用Flume-1监控文件变动，Flume-1将变动内容传递给Flume-2,Flume-2负责存储到HDFS。同时Flume-1将变动内容传递给Flume-3,Flume-3也负责存储到HDFS
@@ -623,7 +623,7 @@ Found 1 items
 
 #### 多数据源汇总
 
-![流的合并](pics\LDHB.jpg)
+<div align="center"> <img src="pics\LDHB.jpg" width="500px"> </div><br>
 
 ##### 案例需求
 
