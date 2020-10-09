@@ -14,7 +14,7 @@
 
 #### 四、Flume组成架构
 
-<div align="center"> <img src="pics\flume_JG.jpg" width="500px"> </div><br>
+![](pics\flume_JG.jpg)
 
 source不断的接收数据，将数据封装成一个一个的event，然后将event发送给channel，channel作为一个缓冲区会临时存放这些event数据，随后sink会将channel中的event数据发送到指定的地方，如hdfs等。当sink将channel中的数据成功发送出去之后，channel会将event数据进行删除，保证了数据传输的可靠性与安全性。
 
@@ -56,17 +56,17 @@ Flume数据传输的基本单元，以Event的形式将数据从源头送至目�
 
 ##### 单一流程
 
-<div align="center"> <img src="pics\DYLC.jpg" width="500px"> </div><br>
+![](pics\DYLC.jpg)
 
 ##### 多个agent的数据流（多级流动）
 
-<div align="center"> <img src="pics\DDLLC.jpg" width="500px"> </div><br>
+![](pics\DDLLC.jpg)
 
 ##### 数据流合并（扇入流）
 
 在做日志收集的时候一个常见的场景就是，大量的生产日志的客户端发送数据到少量的附属于存储子系统的消费者agent。例如，从数百个web服务器中收集日志，它们发送数据到十几个负责将数据写入HDFS集群的agent。
 
-<div align="center"> <img src="pics\LDHB.jpg" width="500px"> </div><br>
+![](pics\LDHB.jpg)
 
 这个在Flume中可以实现，需要配置大量第一层的agent，每一个agent都有一个avro sink,让它们都指向同一个agent的avro source（在这样的场景下也可以使用thrift source/sink/client）。在第二层agent上的source将收到的event合并到一个channel中，event被一个sink消费到它的最终目的地。
 
@@ -74,13 +74,13 @@ Flume数据传输的基本单元，以Event的形式将数据从源头送至目�
 
 Flume支持多路输出event流到一个或多个目的地。这是靠定义一个多路数据流实现的，它可以实现复制和选择性路由一个event到一个或者多个channel中。
 
-<div align="center"> <img src="pics\DLFY.jpg" width="500px"> </div><br>
+![](pics\DLFY.jpg)
 
 上面的例子展示了agent foo 中source 扇出数据流到三个不同的channel，这个扇出可以是复制或者多路输出。在复制数据流的情况下，每一个event被发送到所有的channel中；在多路输出的情况下，一个event被发送到一部分可用的channel中，它们是根据event的属性和预先配置的值选择channel的。这些映射关系应该被填写在agent的配置文件中。
 
 ##### 负载均衡功能
 
-<div align="center"> <img src="pics\FZJH.jpg" width="500px"> </div><br>
+![](pics\FZJH.jpg)
 
 #### 六、Interceptor拦截器
 
@@ -99,7 +99,7 @@ Channel选择器有两种类型：Replicating Channel Selector（默认的）和
 
 #### 八、Flume Agent内部原理
 
-<div align="center"> <img src="pics\flume_agent_NBYL.jpg" width="500px"> </div><br>
+![](pics\flume_agent_NBYL.jpg)
 
 1. Source采集数据，将数据封装成事件对象(event)，然后交给Channel Processor
 2. Channel Processor将事件传递给拦截器链进行简单的数据清洗   
